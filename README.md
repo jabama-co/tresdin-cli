@@ -4,7 +4,7 @@
 
 ## installation
 
-`npm install -g @tresdin/cli`
+`npm install -g @tresdinjs/cli`
 
 ## usage
 
