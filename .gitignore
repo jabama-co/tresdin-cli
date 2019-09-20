@@ -63,3 +63,4 @@ typings/
 # build directories
 .tresdin-cli
 dist
+bin

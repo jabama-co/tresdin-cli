@@ -1,16 +1,18 @@
 {
   "name": "tresdin-cli",
   "version": "0.1.0",
-  "description": "",
-  "main": "dist/index.js",
+  "main": "bin/index.js",
   "scripts": {
-    "dev": "concurrently \"npm run build:dev\"",
-    "build:dev": "tsc --outDir ./.tresdin-cli"
+    "dev": "npm run build:dev && npm run start:dev",
+    "build:dev": "tsc --outDir ./.tresdin-cli",
+    "start:dev": "node ./.tresdin-cli",
+    "build:prod": "tsc --outDir ./bin"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jabama-co/tresdin-cli.git"
   },
+  "description": "Command line utilities for Tresdin.js",
   "keywords": [],
   "author": "Jabama (info@jabama.com)",
   "license": "MIT",
@@ -18,8 +20,16 @@
     "url": "https://github.com/jabama-co/tresdin-cli/issues"
   },
   "homepage": "https://github.com/jabama-co/tresdin-cli#readme",
+  "bin": {
+    "tresdin": "./bin/index.js"
+  },
   "devDependencies": {
     "@types/node": "^12.7.5",
-    "concurrently": "^4.1.2"
+    "concurrently": "^4.1.2",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "commander": "^3.0.1",
+    "inquirer": "^7.0.0"
   }
 }

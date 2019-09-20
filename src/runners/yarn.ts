@@ -2,7 +2,7 @@ import { SpawnOptions } from 'child_process';
 
 import { AbstractPackageManager } from "../abstractions";
 
-class NpmPackageManager extends AbstractPackageManager {
+class YarnPackageManager extends AbstractPackageManager {
     public async init(
         collect: boolean = true,
         cwd: string = process.cwd(),
@@ -13,9 +13,9 @@ class NpmPackageManager extends AbstractPackageManager {
             shell: true,
         }
 
-        await this.spawn('npm', ['init', '--yes'], options);
+        await this.spawn('yarn', ['init', '--yes'], options);
         return null;
     }
 }
 
-export default NpmPackageManager;
+export default YarnPackageManager;

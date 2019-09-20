@@ -1,4 +1,6 @@
-abstract class AbstractPackageManager {
+import Utils from "../utils/utils";
+
+abstract class AbstractPackageManager extends Utils {
     /**
      * @description initializes a new project
      * @param cwd {string} current working directory
@@ -16,14 +18,6 @@ abstract class AbstractPackageManager {
      * @param dependencies {Array<string>} development dependencies
      */
     // public abstract installDev(...dependencies: string[]): Promise<null>;
-    /**
-     * 
-     * @param data {string} data to be printed to console
-     */
-    protected logInfo(data: string): void {
-        // just for now
-        console.info(data);
-    }
 }
 
 export default AbstractPackageManager;
