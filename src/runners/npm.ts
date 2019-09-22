@@ -11,9 +11,26 @@ class NpmPackageManager extends AbstractPackageManager {
             cwd,
             stdio: collect ? 'pipe' : 'inherit',
             shell: true,
-        }
+        };
 
         await this.spawn('npm', ['init', '--yes'], options);
+        return null;
+    }
+
+    public async install(
+        dependencies: string[], 
+        collect: boolean = true,
+        cwd: string = process.cwd(),
+    ) {
+        const options: SpawnOptions = {
+            cwd,
+            stdio: collect ? 'pipe' : 'inherit',
+            shell: true,
+        };
+
+        const installOptions = ['install', '--save', ...dependencies];
+        
+        await this.spawn('npm', installOptions, options);
         return null;
     }
 }
