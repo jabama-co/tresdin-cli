@@ -6,6 +6,7 @@ import { resolve as resolvepath } from 'path';
 
 import pkgManagerFactory from './package-manager-runner';
 import {
+    Tslint,
     Typescript,
 } from './runners';
 
@@ -26,6 +27,9 @@ async function initiate() {
     
     const tsc = new Typescript();
     await tsc.init(true, projectDir);
+
+    const tslint = new Tslint();
+    await tslint.init(true, projectDir);
 }
 
 initiate();
