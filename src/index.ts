@@ -16,6 +16,11 @@ program
 
 program.parse(process.argv);
 
+const dependencies = [
+    'typescript',
+    'tslint',
+];
+
 async function initiate() {
     const projectName = program.args[0];
     const projectDir = projectName ? resolvepath(process.cwd(), projectName) : process.cwd();
@@ -24,6 +29,7 @@ async function initiate() {
 
     const pkgManager = pkgManagerFactory(program.yarn ? 'yarn' : 'npm');
     await pkgManager.init(true, projectDir);
+    await pkgManager.install(dependencies, true, projectDir);
     
     const tsc = new Typescript();
     await tsc.init(true, projectDir);

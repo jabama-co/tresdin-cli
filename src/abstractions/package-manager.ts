@@ -12,7 +12,7 @@ abstract class AbstractPackageManager extends Utils {
      * @description installs production dependencies
      * @param dependencies {Array<string>} production dependencies
      */
-    // public abstract install(...dependencies: string[]): Promise<null>;
+    public abstract install(dependencies: string[], collect: boolean, cwd: string): Promise<null>;
     /**
      * @description installs development dependencies
      * @param dependencies {Array<string>} development dependencies
